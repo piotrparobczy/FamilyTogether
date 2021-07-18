@@ -33,12 +33,12 @@ create table calendar
 
 create table user_family
 (
-    id_family bigint not null,
-    id_user   bigint not null,
-    constraint FK8a1hi8a8jpwywtiu1gk0jb0tu
-        foreign key (id_user) references families (id),
-    constraint FKk6v29rauw3tmqglbhan2vs5ar
-        foreign key (id_family) references users (id)
+    user   bigint not null,
+    family bigint not null,
+    constraint FK172gqk0yl1th4het9y45dq1pu
+        foreign key (user) references users (id),
+    constraint FKn4lwe1qc135g2ru56k06ioiuk
+        foreign key (family) references families (id)
 );
 
 create table wishlists
@@ -55,3 +55,4 @@ create table wishlists
     constraint FKoswblj50tn5alax998y6e8sjc
         foreign key (who_will_buy_it_id) references users (id)
 );
+

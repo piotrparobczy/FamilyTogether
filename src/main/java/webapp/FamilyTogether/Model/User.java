@@ -34,10 +34,12 @@ public class User {
     private String lastName;
     @Column(nullable = false)
     private LocalDate birthday;
+    @Column(nullable = false)
+    private String  password;
     @ManyToMany
     @JoinTable(name = "user_family",
-            joinColumns = @JoinColumn(name = "family"),
-            inverseJoinColumns = @JoinColumn(name = "user"))
+            joinColumns = @JoinColumn(name = "user"),
+            inverseJoinColumns = @JoinColumn(name = "family"))
     private List<Family> family = new ArrayList<>();
 
 }
