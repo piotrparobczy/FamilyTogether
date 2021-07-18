@@ -26,7 +26,7 @@ public class Family {
     private Long id;
     @Column(nullable = false)
     private String designation;
-    @ManyToMany(mappedBy = "idFamily")
-    private List<User> idUser = new ArrayList<>();
+    @ManyToMany(mappedBy = "family")
+    private List<User> user = new ArrayList<>();
 
 }

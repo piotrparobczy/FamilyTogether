@@ -36,7 +36,8 @@ public class User {
     private LocalDate birthday;
     @ManyToMany
     @JoinTable(name = "user_family",
-            joinColumns = @JoinColumn(name = "idFamily"),
-            inverseJoinColumns = @JoinColumn(name = "idUser"))
-    private List<Family> idFamily = new ArrayList<>();
+            joinColumns = @JoinColumn(name = "family"),
+            inverseJoinColumns = @JoinColumn(name = "user"))
+    private List<Family> family = new ArrayList<>();
+
 }
