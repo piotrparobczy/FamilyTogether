@@ -8,6 +8,7 @@ import webapp.FamilyTogether.Model.User;
 import webapp.FamilyTogether.Repository.UserRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Service
@@ -40,6 +41,7 @@ public class UserServices  {
     return userRepository.findByEmail(email);
   };
   public boolean existByEmail(String email){return userRepository.existsByEmail(email);};
+  public List<String > findAllEmails(){return userRepository.findAllEmails();}
   // changeuser
   // deleteuser
   // find-> JPA

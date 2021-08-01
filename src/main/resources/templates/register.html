@@ -19,7 +19,6 @@
             <div class="form-group">
                 <input type="email" name="email" placeholder="Email" th:field="*{email}" />
                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-                <p th:if="${param.error}">Niepoprawne dane logowania!</p>
             </div>
             <div class="form-group">
                 <input type="password" name="password" placeholder="Hasło" th:field="*{password}" id="password" />
@@ -53,6 +52,9 @@
             </div>
             <div id="success-message" class="alert alert-success d-none">
             </div>
+        </div>
+        <div id="testdiv">
+        <textarea id="test" style="visibility: hidden" th:value="${test}"></textarea>
         </div>
     </section>
 </div>

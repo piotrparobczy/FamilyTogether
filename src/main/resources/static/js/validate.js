@@ -2,10 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const registerForm = document.getElementById("registerForm")
 
-    // let textarea = document.getElementById("test")
-    // const testValue = textarea.attributes.item(2).nodeValue
-    // textarea.parentNode.removeChild(textarea)
-
+    let textarea = document.getElementById("test")
+    let testValue = textarea.attributes.item(2).nodeValue
+    textarea.parentNode.removeChild(textarea)
+    let splitTestValue = testValue.replaceAll("[","")
+        .replaceAll("]","")
+        .replaceAll(" ","")
+        .split(",")
 
     registerForm.addEventListener('submit', handler)
 
@@ -29,9 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!regexpEmail.test(e.target.email.value)) {
             errors.push("Email musi być postaci: example@example.example")
         }
-        // if (testValue != null) {
-        //     errors.push(testValue)
-        // }
+
+        splitTestValue.forEach(function (elem){
+            console.log(elem)
+            console.log(e.target.email.value)
+            if (elem==e.target.email.value){
+                errors.push("Email " + elem + " już istnieje. Zaloguj się")
+            }
+        })
 
         //firstname
         const regexpName = /[A-Z][a-z]{1,9}/
@@ -75,5 +83,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-
+//todo change register to weryfi /
 });

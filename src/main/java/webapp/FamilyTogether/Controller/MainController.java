@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import webapp.FamilyTogether.DTO.UserDTO;
+import webapp.FamilyTogether.Model.User;
 import webapp.FamilyTogether.Services.UserServices;
 
 import javax.validation.Valid;
@@ -44,24 +45,17 @@ public class MainController {
     public String getRegisterPage(Model model) {
         UserDTO userDto = new UserDTO();
         model.addAttribute("userDto", userDto);
+        model.addAttribute("test",userServices.findAllEmails().toString());
         return "register";
     }
 
     @PostMapping("/register")
-    public String getRegisterForm(UserDTO userDto, BindingResult bindingResult, Model model) {
-//        if (userServices.existByEmail(userDto.getEmail())) {
-//            model.addAttribute("error","X");
-//            return "register";
-//        }
-//
-//        if (bindingResult.hasErrors()) {
-//            return "register";
-//        }
-
+    public String postRegisterPage(UserDTO userDto, BindingResult bindingResult, Model model) {
         userServices.createUser(userDto);
-
         return "login";
     }
+
+
 
 
     @RequestMapping("/contact")

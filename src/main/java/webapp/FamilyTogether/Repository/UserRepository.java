@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import webapp.FamilyTogether.Model.Family;
 import webapp.FamilyTogether.Model.User;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -16,5 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByEmail(String email);
 
-
+    @Query(value = "SELECT email FROM users",nativeQuery = true)
+    List<String> findAllEmails();
 }
