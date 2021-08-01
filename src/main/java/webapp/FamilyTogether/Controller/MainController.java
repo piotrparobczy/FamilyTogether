@@ -19,8 +19,11 @@ import javax.validation.Valid;
 
 public class MainController {
 
-    @Autowired
-    private UserServices userServices;
+    private final UserServices userServices;
+
+    public MainController(UserServices userServices) {
+        this.userServices = userServices;
+    }
 
     @RequestMapping("/main")
     public String getIndexPage() {
@@ -34,7 +37,6 @@ public class MainController {
 
     @PostMapping("/login")
     public String postLoginPage(){
-
         return "main";
     }
 
@@ -46,16 +48,15 @@ public class MainController {
     }
 
     @PostMapping("/register")
-    public String getRegisterForm(UserDTO userDto, BindingResult bindingResult, WebRequest request) {
-        if (userServices.existByEmail(userDto.getEmail())) {
-            bindingResult.rejectValue("email", "error.user",
-                    "User '" + userDto.getEmail() + "' is already register");
-            return "register";
-        }
-
-        if (bindingResult.hasErrors()) {
-            return "register";
-        }
+    public String getRegisterForm(UserDTO userDto, BindingResult bindingResult, Model model) {
+//        if (userServices.existByEmail(userDto.getEmail())) {
+//            model.addAttribute("error","X");
+//            return "register";
+//        }
+//
+//        if (bindingResult.hasErrors()) {
+//            return "register";
+//        }
 
         userServices.createUser(userDto);
 
