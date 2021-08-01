@@ -14,17 +14,18 @@ import java.util.Optional;
 @SpringBootTest
 class FamilyTogetherApplicationTests {
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 
 	@Test
-	void contextLoads() {
-		User user=userRepository.findOneByEmail("jankowalski@test.pl");//no
+	public void contextLoads() {
+		User user=userRepository.findByEmail("edytakowalska@test.pl");//no
+    System.out.println(user);
 	}
 
 	@Test
-	void test2(){
+	void hashPassword(){
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String password = encoder.encode("jankowalski@test.pl");
+		String password = encoder.encode("edytakowalska@test.pl");
     	System.out.println(password);
 	}
 

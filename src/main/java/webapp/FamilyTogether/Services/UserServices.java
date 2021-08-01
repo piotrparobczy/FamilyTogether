@@ -9,11 +9,13 @@ import webapp.FamilyTogether.Repository.UserRepository;
 
 import java.time.LocalDate;
 
+
 @Service
-public class UserServices {
+public class UserServices  {
 
   @Autowired
-  private UserRepository userRepository;
+  public   UserRepository userRepository;
+
 
   public void createUser(UserDTO userDTO) {
 
@@ -34,9 +36,10 @@ public class UserServices {
     userRepository.save(user);
   }
 
-  public User findOneByEmail(String email) {
-    return userRepository.findOneByEmail(email);
-  }
+  public User findByEmail(String email){
+    return userRepository.findByEmail(email);
+  };
+  public boolean existByEmail(String email){return userRepository.existsByEmail(email);};
   // changeuser
   // deleteuser
   // find-> JPA
