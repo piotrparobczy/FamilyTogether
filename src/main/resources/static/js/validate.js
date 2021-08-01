@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const registerForm = document.getElementById("registerForm")
 
@@ -9,10 +9,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     registerForm.addEventListener('submit', handler)
 
+    let done = "no"
+    let errorField = document.querySelector("#error-message");
+    let successField = document.querySelector("#success-message");
+
     function handler(e) {
-        e.preventDefault();
-        let errorField = document.querySelector("#error-message");
-        let successField = document.querySelector("#success-message");
+        if (done == "no") {
+            e.preventDefault();
+        }
+
         errorField.classList.add("d-none");
         successField.classList.add("d-none");
         errorField.innerHTML = "";
@@ -43,12 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             errors.push("Hasło musi miec conajmniej 8 znaków, 1 dużą litere, 1 małą litere, 1 znak specjalny")
         }
 
-        //todo nie dziala
-        console.log(e.target.password2.value)
-        console.log(e.target.password.value)
-        console.log(e.target.password2.value == e.target.password.value)
-
-        if (!e.target.password2.value == e.target.password.value){
+        if (e.target.password2.value != e.target.password.value) {
             errors.push("Hasła muszą być takie same")
         }
         //birthday
@@ -57,20 +57,23 @@ document.addEventListener("DOMContentLoaded", function() {
             errors.push("Urodziny muszą być postaci YYYY-MM-DD")
         }
 
+        validator(errors)
+    }
+
+    function validator(errors) {
         if (errors.length) {
-            console.log(errors)
             errorField.classList.remove("d-none");
             errors.forEach(error => {
                 const newElement = document.createElement("div")
                 newElement.innerText = error;
                 errorField.appendChild(newElement)
             })
-            return;
+        } else {
+            done = "yes"
+            successField.classList.remove("d-none");
+            successField.innerText = "Formularz jest poprawny i gotowy do wysłania!"
         }
-        successField.classList.remove("d-none");
-        successField.innerText = "Formularz jest wysyłany!"
+
     }
-
-
 
 });
