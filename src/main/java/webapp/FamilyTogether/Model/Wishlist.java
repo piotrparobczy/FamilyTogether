@@ -30,4 +30,16 @@ public class Wishlist {
     @ManyToOne
     @JoinColumn
     private User whoWillBuyIt;
+
+    @Override
+    public String toString() {
+        return "Wishlist{" +
+                "id=" + id +
+                ", user=" + user +
+                ", iWant='" + iWant + '\'' +
+                ", link='" + link + '\'' +
+                ", sbWillBuyIt=" + sbWillBuyIt +
+                ", whoWillBuyIt=" + whoWillBuyIt +
+                '}';
+    }
 }
