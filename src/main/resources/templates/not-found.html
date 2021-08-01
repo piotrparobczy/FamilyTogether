@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>FamilyTogether</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<header th:replace="fragments/header :: header">
+    <!-- insert header -->
+</header>
+<div class="main">
+    <section><strong>username</strong></section>
+    <section id="pageContent">
+        <main role="main">
+            <article>
+                <h2>Kalendarz</h2>
+                <p>tu bedzie kalendarz</p>
+            </article>
+        </main>
+        <aside>Do kupienia
+            <div style="text-align: center;">Paweł Janczewski<br/>Urodziny:<br/>hulajnoga<br/><a href="google.com"></a>Example
+            </div>
+            <div>Sidebar 2</div>
+            <div>Sidebar 3</div>
+        </aside>
+    </section>
+</div>
+<footer th:replace="fragments/footer :: footer">
+    <!-- insert footer -->
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
