@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const registerForm = document.getElementById("registerForm")
+    const btnSubmit = document.getElementById("submit")
 
-    let textarea = document.getElementById("test")
+    const textarea = document.getElementById("test")
     let testValue = textarea.attributes.item(2).nodeValue
     textarea.parentNode.removeChild(textarea)
     let splitTestValue = testValue.replaceAll("[","")
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         } else {
             done = "yes"
+            btnSubmit.innerText = "Załóż Konto"
             successField.classList.remove("d-none");
             successField.innerText = "Formularz jest poprawny i gotowy do wysłania!"
         }
