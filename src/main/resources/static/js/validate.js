@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.getElementById("test")
     let testValue = textarea.attributes.item(2).nodeValue
     textarea.parentNode.removeChild(textarea)
-    let splitTestValue = testValue.replaceAll("[","")
-        .replaceAll("]","")
-        .replaceAll(" ","")
+    let splitTestValue = testValue.replaceAll("[", "")
+        .replaceAll("]", "")
+        .replaceAll(" ", "")
         .split(",")
 
     registerForm.addEventListener('submit', handler)
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
             errors.push("Email musi być postaci: example@example.example")
         }
 
-        splitTestValue.forEach(function (elem){
+        splitTestValue.forEach(function (elem) {
             console.log(elem)
             console.log(e.target.email.value)
-            if (elem==e.target.email.value){
+            if (elem == e.target.email.value) {
                 errors.push("Email " + elem + " już istnieje. Zaloguj się")
             }
         })
@@ -85,5 +85,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-//todo change register to weryfi /
 });

@@ -1,11 +1,11 @@
 package webapp.FamilyTogether.Services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import webapp.FamilyTogether.DTO.UserDTO;
 import webapp.FamilyTogether.Model.User;
 import webapp.FamilyTogether.Repository.UserRepository;
+import webapp.FamilyTogether.Repository.UserToFamilyRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,8 +14,13 @@ import java.util.List;
 @Service
 public class UserServices  {
 
-  @Autowired
-  public   UserRepository userRepository;
+  private final UserRepository userRepository;
+  private final UserToFamilyRepository userToFamilyRepository;
+
+  public UserServices(UserRepository userRepository, UserToFamilyRepository userToFamilyRepository) {
+    this.userRepository = userRepository;
+    this.userToFamilyRepository = userToFamilyRepository;
+  }
 
 
   public void createUser(UserDTO userDTO) {
@@ -35,13 +40,17 @@ public class UserServices  {
     user.setBirthday(LocalDate.parse(userDTO.getBirthday()));
 
     userRepository.save(user);
+
+    userToFamilyRepository.insertWithQuery(user);
   }
+
 
   public User findByEmail(String email){
     return userRepository.findByEmail(email);
   };
   public boolean existByEmail(String email){return userRepository.existsByEmail(email);};
   public List<String > findAllEmails(){return userRepository.findAllEmails();}
+
   // changeuser
   // deleteuser
   // find-> JPA

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import webapp.FamilyTogether.Model.Family;
 import webapp.FamilyTogether.Model.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,4 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT email FROM users",nativeQuery = true)
     List<String> findAllEmails();
+
+
 }
