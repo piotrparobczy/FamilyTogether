@@ -23,7 +23,7 @@ public class RegisterController {
   public String getRegisterPage(Model model) {
     UserDto userDto = new UserDto();
     model.addAttribute("userDto", userDto);
-    model.addAttribute("test", userService.findAllEmails().toString());
+    model.addAttribute("emails",userService.findAllEmails().toString());
     return "register";
   }
 

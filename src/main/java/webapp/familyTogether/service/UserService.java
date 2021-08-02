@@ -8,6 +8,7 @@ import webapp.familyTogether.repository.UserRepository;
 import webapp.familyTogether.repository.UserToFamilyRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +51,11 @@ public class UserService {
     return userRepository.findByEmail(email);
   };
   public boolean existByEmail(String email){return userRepository.existsByEmail(email);};
-  public List<String > findAllEmails(){return userRepository.findAllEmails();}
+public List<String > findAllEmails(){
+  List <String> listOfEmails = new ArrayList<>();
+  userRepository.findAll().forEach(user->listOfEmails.add(user.getEmail()));
+  return listOfEmails;
+}
   public Optional<User> findById(Long id){return userRepository.findById(id);}
 
   // changeuser

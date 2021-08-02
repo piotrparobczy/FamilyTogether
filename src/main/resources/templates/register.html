@@ -17,11 +17,11 @@
         <h2>Załóż konto</h2>
         <form th:object="${userDto}" th:method="post" th:action="@{/register}" id="registerForm">
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email" th:field="*{email}" />
+                <input type="email" name="email" placeholder="Email" th:field="*{email}"/>
                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="Hasło" th:field="*{password}" id="password" />
+                <input type="password" name="password" placeholder="Hasło" th:field="*{password}" id="password"/>
                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
             </div>
             <div class="form-group">
@@ -29,21 +29,22 @@
                 <p id="password_check"></p>
             </div>
             <div class="form-group">
-                <input type="firstname" name="firstName" placeholder="Imie" th:field="*{firstName}" id="firstName" />
+                <input type="firstname" name="firstName" placeholder="Imie" th:field="*{firstName}" id="firstName"/>
                 <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
             </div>
             <div class="form-group">
-                <input type="lastName" name="lastName" placeholder="Nazwisko" th:field="*{lastName}" id="lastName" />
+                <input type="lastName" name="lastName" placeholder="Nazwisko" th:field="*{lastName}" id="lastName"/>
                 <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
             </div>
             <div class="form-group">
-                <input type="birthday" name="birthday" placeholder="Urodziny" th:field="*{birthday}" id="birthday" />
+                <input type="birthday" name="birthday" placeholder="Urodziny" th:field="*{birthday}" id="birthday"/>
                 <p th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></p>
             </div>
 
 
             <div class="form-group form-group--buttons">
-                <button class="btn,btn-link" type="button"><a th:href="@{/login}" class="btn-link">Zaloguj się</a></button>
+                <button class="btn,btn-link" type="button"><a th:href="@{/login}" class="btn-link">Zaloguj się</a>
+                </button>
                 <button class="btn" type="submit" id="submit">Weryfikuj</button>
             </div>
         </form>
@@ -54,7 +55,7 @@
             </div>
         </div>
         <div id="testdiv">
-        <textarea id="test" style="visibility: hidden" th:value="${test}"></textarea>
+            <textarea id="test" style="visibility: hidden" th:value="${emails}"></textarea>
         </div>
     </section>
 </div>
