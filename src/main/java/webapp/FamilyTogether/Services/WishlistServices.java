@@ -18,6 +18,7 @@ public class WishlistServices {
 
 
   public List <String > findAllWhishes(Long userId){return wishlistRepository.findAllWhishes(userId);}
+  public List <String > findAllWhishesId(Long userId){return wishlistRepository.findAllWhishesId(userId);}
 
   public void createWish() {
 

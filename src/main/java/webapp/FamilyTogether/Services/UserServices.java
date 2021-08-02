@@ -9,6 +9,7 @@ import webapp.FamilyTogether.Repository.UserToFamilyRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -50,6 +51,7 @@ public class UserServices  {
   };
   public boolean existByEmail(String email){return userRepository.existsByEmail(email);};
   public List<String > findAllEmails(){return userRepository.findAllEmails();}
+  public Optional<User> findById(Long id){return userRepository.findById(id);}
 
   // changeuser
   // deleteuser

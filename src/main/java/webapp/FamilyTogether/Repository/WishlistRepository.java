@@ -13,4 +13,6 @@ public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
 
     @Query(value = "SELECT i_want FROM wishlists WHERE user_id = ?1",nativeQuery = true)
      List<String> findAllWhishes(Long userId);
+    @Query(value = "SELECT id FROM wishlists WHERE user_id = ?1",nativeQuery = true)
+    List<String> findAllWhishesId(Long userId);
 }

@@ -14,21 +14,23 @@
 </header>
 <div id="wishlist">
     <div>
-        <button>Dodaj nowy</button>
+        <button id="new">Dodaj nowy</button>
     </div>
     <div>
-        <button>Zapisz zmiany</button>
+        <button id="save">Zapisz zmiany</button>
     </div>
-    <textarea id="test" style="visibility: hidden" th:value="${wishlist}"></textarea>
-    <div>
-        <textarea readonly>PRZYKŁADOWY TEKST</textarea>
-        <button>Usuń</button>
+    <textarea id="list" style="visibility: hidden" th:value="${wishlist}"></textarea>
+    <textarea id="id" style="visibility: hidden" th:value="${wishlistId}"></textarea>
+    <div id="insert">
+        <div>
+            <textarea readonly>PRZYKŁADOWY TEKST</textarea>
+            <button>Usuń</button>
+        </div>
     </div>
-
 </div>
 <footer th:replace="fragments/footer :: footer">
     <!-- insert footer -->
 </footer>
-<script src="js/app.js"></script>
+<script src="js/wishlist.js"></script>
 </body>
 </html>

@@ -62,19 +62,15 @@ footer {
   text-align: right;
   bottom: 0px;
   position: fixed;
-  padding: 20px;
+  padding: 10px;
 }
 footer p {
-  padding: 20px;
+  padding: 10px;
 }
 address {
   padding: 10px 20px 30px 10px;
 }
-aside > div {
-  margin: 10px auto;
-  background: #FFCE8D;
-  min-height: 100px;
-}
+
 #logo {
   display: inline-block;
   vertical-align: middle;
@@ -112,8 +108,8 @@ body > section {
     width: 100%;
   }
   aside {
-    float: none;
-    width: 100%;
+    float: right;
+    width: 30%;
   }
 .login-page{
   margin-left: auto;
