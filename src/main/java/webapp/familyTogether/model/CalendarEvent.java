@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @Table(name = "calendar")
-public class Calendar {
+public class CalendarEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

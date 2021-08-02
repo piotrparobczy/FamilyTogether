@@ -1,22 +1,22 @@
 package webapp.familyTogether.services;
 
 import org.springframework.stereotype.Service;
-import webapp.familyTogether.model.Calendar;
-import webapp.familyTogether.repository.CalendarRepository;
+import webapp.familyTogether.model.CalendarEvent;
+import webapp.familyTogether.repository.CalendarEventRepository;
 
 import java.util.List;
 
 @Service
 public class CalendarServices {
 
-  private final CalendarRepository calendarRepository;
+  private final CalendarEventRepository calendarEventRepository;
 
-  public CalendarServices(CalendarRepository calendarRepository) {
-    this.calendarRepository = calendarRepository;
+  public CalendarServices(CalendarEventRepository calendarEventRepository) {
+    this.calendarEventRepository = calendarEventRepository;
   }
 
-  public List<Calendar> findAllByFamilyId(Long id) {
-    return calendarRepository.findAllByFamilyId(id);
+  public List<CalendarEvent> findAllByFamilyId(Long id) {
+    return calendarEventRepository.findAllByFamilyId(id);
   }
 
   public void createWish() {}

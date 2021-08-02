@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 
-public class UserDTO {
+public class UserDto {
 
     @NotNull
     @NotEmpty

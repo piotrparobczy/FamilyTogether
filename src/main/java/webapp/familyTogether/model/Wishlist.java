@@ -26,7 +26,6 @@ public class Wishlist {
     private User user;
     private String iWant;
     private String link;
-    private Boolean sbWillBuyIt;
     @ManyToOne
     @JoinColumn
     private User whoWillBuyIt;
@@ -38,7 +37,6 @@ public class Wishlist {
                 ", user=" + user +
                 ", iWant='" + iWant + '\'' +
                 ", link='" + link + '\'' +
-                ", sbWillBuyIt=" + sbWillBuyIt +
                 ", whoWillBuyIt=" + whoWillBuyIt +
                 '}';
     }

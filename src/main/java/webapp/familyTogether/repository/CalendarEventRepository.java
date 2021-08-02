@@ -2,12 +2,12 @@ package webapp.familyTogether.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import webapp.familyTogether.model.Calendar;
+import webapp.familyTogether.model.CalendarEvent;
 
 import java.util.List;
 
 @Repository
-public interface CalendarRepository extends JpaRepository<Calendar, Long> {
+public interface CalendarEventRepository extends JpaRepository<CalendarEvent, Long> {
 
-    List<Calendar> findAllByFamilyId(Long id);
+    List<CalendarEvent> findAllByFamilyId(Long id);
 }

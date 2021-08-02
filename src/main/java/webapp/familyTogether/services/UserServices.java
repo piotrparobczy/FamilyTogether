@@ -2,7 +2,7 @@ package webapp.familyTogether.services;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import webapp.familyTogether.dto.UserDTO;
+import webapp.familyTogether.dto.UserDto;
 import webapp.familyTogether.model.User;
 import webapp.familyTogether.repository.UserRepository;
 import webapp.familyTogether.repository.UserToFamilyRepository;
@@ -24,7 +24,7 @@ public class UserServices  {
   }
 
 
-  public void createUser(UserDTO userDTO) {
+  public void createUser(UserDto userDTO) {
 
     if (userRepository.existsByEmail(userDTO.getEmail())) {
       System.out.println("User already exist");

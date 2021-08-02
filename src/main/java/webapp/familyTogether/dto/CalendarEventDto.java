@@ -1,8 +1,8 @@
 package webapp.familyTogether.dto;
 
-import webapp.familyTogether.model.Calendar;
+import webapp.familyTogether.model.CalendarEvent;
 
-public class CalendarDto {
+public class CalendarEventDto {
     private String date;
     private String userName;
     private String userLastName;
@@ -31,12 +31,12 @@ public class CalendarDto {
         this.userLastName = userLastName;
     }
 
-    public CalendarDto calendarToDto(Calendar calendar){
-        CalendarDto calendarDto = new CalendarDto();
-        calendarDto.setDate(calendar.getDate().toString());
-        calendarDto.setUserName(calendar.getUser().getFirstName());
-        calendarDto.setUserLastName(calendar.getUser().getLastName());
-        return calendarDto;
+    public CalendarEventDto calendarToDto(CalendarEvent calendar){
+        CalendarEventDto calendarEventDto = new CalendarEventDto();
+        calendarEventDto.setDate(calendar.getDate().toString());
+        calendarEventDto.setUserName(calendar.getUser().getFirstName());
+        calendarEventDto.setUserLastName(calendar.getUser().getLastName());
+        return calendarEventDto;
     }
 
     @Override
