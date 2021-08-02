@@ -1,4 +1,4 @@
-package webapp.familyTogether.services;
+package webapp.familyTogether.service;
 
 import org.springframework.stereotype.Service;
 import webapp.familyTogether.model.CalendarEvent;
@@ -7,11 +7,11 @@ import webapp.familyTogether.repository.CalendarEventRepository;
 import java.util.List;
 
 @Service
-public class CalendarServices {
+public class CalendarService {
 
   private final CalendarEventRepository calendarEventRepository;
 
-  public CalendarServices(CalendarEventRepository calendarEventRepository) {
+  public CalendarService(CalendarEventRepository calendarEventRepository) {
     this.calendarEventRepository = calendarEventRepository;
   }
 

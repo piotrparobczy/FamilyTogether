@@ -1,4 +1,4 @@
-package webapp.familyTogether.services;
+package webapp.familyTogether.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,12 +13,12 @@ import java.util.Optional;
 
 
 @Service
-public class UserServices  {
+public class UserService {
 
   private final UserRepository userRepository;
   private final UserToFamilyRepository userToFamilyRepository;
 
-  public UserServices(UserRepository userRepository, UserToFamilyRepository userToFamilyRepository) {
+  public UserService(UserRepository userRepository, UserToFamilyRepository userToFamilyRepository) {
     this.userRepository = userRepository;
     this.userToFamilyRepository = userToFamilyRepository;
   }

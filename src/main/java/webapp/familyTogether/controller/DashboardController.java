@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import webapp.familyTogether.dto.CalendarEventDto;
 import webapp.familyTogether.model.CalendarEvent;
-import webapp.familyTogether.services.CalendarServices;
+import webapp.familyTogether.service.CalendarService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +15,15 @@ import java.util.List;
 @Controller
 public class DashboardController {
 
-  private final CalendarServices calendarServices;
+  private final CalendarService calendarService;
 
-  public DashboardController(CalendarServices calendarServices) {
-    this.calendarServices = calendarServices;
+  public DashboardController(CalendarService calendarService) {
+    this.calendarService = calendarService;
   }
 
   @RequestMapping("/main")
   public String getIndexPage(Model model) {
-    List<CalendarEvent> calendarData = calendarServices.findAllByFamilyId(1L);
+    List<CalendarEvent> calendarData = calendarService.findAllByFamilyId(1L);
     List<String> list = new ArrayList<>();
     for (int i = 0; i < calendarData.size(); i++) {
       CalendarEventDto calendarEventDto = new CalendarEventDto();
