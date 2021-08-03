@@ -21,7 +21,7 @@ public class DashboardController {
     this.calendarService = calendarService;
   }
 
-  @RequestMapping("/main")
+  @RequestMapping(value = {"/main","/"})
   public String getIndexPage(Model model) {
     List<CalendarEvent> calendarData = calendarService.findAllByFamilyId(1L);
     List<String> list = new ArrayList<>();
