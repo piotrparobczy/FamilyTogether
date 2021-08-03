@@ -12,10 +12,20 @@
 <header th:replace="fragments/header :: header">
     <!-- insert header -->
 </header>
-Tu będzie mail itd
+<div id="wishlist">
+    <div>
+        <button id="new">Dodaj nowy</button>
+    </div>
+    <div>
+        <button id="save">Zapisz zmiany</button>
+    </div>
+    <textarea id="jsonData" style="visibility: hidden" th:value="${jsonData}"></textarea>
+    <div id="insert">
+    </div>
+</div>
 <footer th:replace="fragments/footer :: footer">
     <!-- insert footer -->
 </footer>
-<script src="js/app.js"></script>
+<script src="js/wishlist.js"></script>
 </body>
 </html>

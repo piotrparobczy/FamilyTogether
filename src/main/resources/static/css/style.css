@@ -1,11 +1,11 @@
 body,html {
   background-color: #FFF;
+  margin: 0px;
 }
 header {
   background: #AEC6CF;
   padding: 20px 30px;
-  max-width: 940px;
-  margin: auto;
+  margin: 0px;
 }
 nav {
   display: inline-block;
@@ -30,13 +30,12 @@ nav ul {
   list-style: none;
 }
 #pageContent {
-  max-width: 1000px;
-  margin: auto;
+  margin: 0px;
   border: none;
 }
-main {
-  float: left;
-  width: 60%;
+.main {
+  margin: 100px;
+
 }
 aside {
   float: right;
@@ -59,27 +58,31 @@ main section {
 }
 footer {
   background: #AEC6CF;
-  max-width: 1000px;
-  margin: auto;
-  clear: both;
+  margin: 0px;
   text-align: right;
+  bottom: 0px;
+  position: fixed;
+  padding: 10px;
 }
 footer p {
-  padding: 20px;
+  padding: 10px;
 }
 address {
   padding: 10px 20px 30px 10px;
 }
-aside > div {
-  margin: 10px auto;
-  background: #FFCE8D;
-  min-height: 100px;
-}
+
 #logo {
   display: inline-block;
   vertical-align: middle;
   font-size: 30px;
   margin-right: 75px;
+  color: #FFF;
+}
+#bigLogo{
+  display: inline-block;
+  vertical-align: middle;
+  horiz-align: center;
+  font-size: 30px;
   color: #FFF;
 }
 #logo img {
@@ -88,8 +91,7 @@ aside > div {
   margin-right: 10px;
 }
 body > section {
-  max-width: 1000px;
-  margin: auto;
+  margin: 0px;
   padding: 30px 0px;
   border-bottom: 1px solid #999;
   color: #333;
@@ -106,8 +108,14 @@ body > section {
     width: 100%;
   }
   aside {
-    float: none;
-    width: 100%;
+    float: right;
+    width: 30%;
   }
-
+.login-page{
+  margin-left: auto;
+}
+.btn-link{
+  text-decoration: none;
+  color: #333333;
+}
 }

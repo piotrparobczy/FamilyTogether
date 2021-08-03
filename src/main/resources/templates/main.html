@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>FamilyTogether</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <!-- jsCalendar v1.4.3 Javascript and CSS from unpkg cdn -->
+    <script src="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.js"
+            integrity="sha384-JqNLUzAxpw7zEu6rKS/TNPZ5ayCWPUY601zaig7cUEVfL+pBoLcDiIEkWHjl07Ot"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.css"
+          integrity="sha384-+OB2CadpqXIt7AheMhNaVI99xKH8j8b+bHC8P5m2tkpFopGBklD3IRvYjPekeWIJ" crossorigin="anonymous">
+    <style>
+        .birthdays {
+            background-color: #D49600;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,24 +24,93 @@
     <!-- insert header -->
 </header>
 
-<section><strong>Witaj {user.name} !</strong></section>
+
 <section id="pageContent">
     <main role="main">
         <article>
-            <h2>Kalendarz</h2>
-            <p>tu bedzie kalendarz</p>
+            <!-- my calendar -->
+            <!-- auto jsCalendar element -->
+            <div id="myCalendar"
+                 data-first-day-of-the-week="2"></div>
+            <textarea id="calendar" style="visibility: hidden" th:value="${dataList}"></textarea>
+            <div id="aside">
+                <aside>Daty urodzin:</aside>
+            </div>
         </article>
     </main>
-    <aside>Do kupienia
-        <div style="text-align: center;">Paweł Janczewski<br/>Urodziny:<br/>hulajnoga<br/><a href="google.com"></a>Example
-        </div>
-        <div>Sidebar 2</div>
-        <div>Sidebar 3</div>
-    </aside>
+
 </section>
 <footer th:replace="fragments/footer :: footer">
     <!-- insert footer -->
 </footer>
-<script src="js/app.js"></script>
+<script type="text/javascript">
+    let element = document.getElementById("myCalendar")
+    let myCalendar = jsCalendar.new(element)
+
+    const value = document.getElementById("calendar")
+    let calendar = value.attributes.item(2).nodeValue
+
+    const simpleObjects = calendar.replaceAll("[", "").replaceAll("]", "").replaceAll(" ", "")
+        .split(",")
+
+    let iterator = 0
+    let objects = []
+    simpleObjects.forEach(function (o) {
+        objects[iterator] = o.split("|")
+        iterator++
+    })
+    changeDate(objects)
+
+    function changeDate(objects) {
+        for (let i = 0; i < objects.length; i++) {
+            let dataInput = objects[i][0]
+            let split = dataInput.split("-")
+            let dataOutput = split[2] + '/' + split[1] + '/' + 2021
+            objects[i][0] = dataOutput
+        }
+    }
+
+    let birthdays = []
+    birthdaysToCalendar(objects)
+
+    function birthdaysToCalendar(objects) {
+        for (let i = 0; i < objects.length; i++) {
+            birthdays.push(objects[i][0])
+        }
+    }
+
+    myCalendar.select(birthdays)
+
+    let left = document.getElementsByClassName("jsCalendar-nav-left").item(0)
+    left.addEventListener('onclick', function () {
+        let birthdaysElement = document.getElementsByClassName("jsCalendar-selected")
+        for (let i = 0; i < birthdaysElement.length; i++) {
+            birthdaysElement[i].classList.add("birthdays")
+        }
+    })
+    let right = document.getElementsByClassName("jsCalendar-nav-right").item(0)
+    right.addEventListener('onclick', function () {
+        let birthdaysElement = document.getElementsByClassName("jsCalendar-selected")
+        for (let i = 0; i < birthdaysElement.length; i++) {
+            birthdaysElement[i].classList.add("birthdays")
+        }
+        console.log(birthdaysElement[0].innerHTML)
+    })
+
+    const aside = document.getElementById("aside")
+    objects.forEach(function (object) {
+        let desc = aside.appendChild(document.createElement("aside"))
+        desc.innerHTML = object[1]+' '+ object[2]+' - ' + object[0]
+    })
+
+    // let myCalendar = document.getElementById("myCalendar")
+    // myCalendar.onDayRender(function(index, element, info) {
+    //     // If weekend, make it red
+    //     if (index == 0 || index == 6) {
+    //         element.style.color = '#c32525';
+    //     }
+    // })
+</script>
+
 </body>
 </html>
