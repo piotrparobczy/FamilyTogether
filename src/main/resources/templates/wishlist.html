@@ -19,13 +19,8 @@
     <div>
         <button id="save">Zapisz zmiany</button>
     </div>
-    <textarea id="list" style="visibility: hidden" th:value="${wishlist}"></textarea>
-    <textarea id="id" style="visibility: hidden" th:value="${wishlistId}"></textarea>
+    <textarea id="jsonData" style="visibility: hidden" th:value="${jsonData}"></textarea>
     <div id="insert">
-        <div>
-            <textarea readonly>PRZYKŁADOWY TEKST</textarea>
-            <button>Usuń</button>
-        </div>
     </div>
 </div>
 <footer th:replace="fragments/footer :: footer">

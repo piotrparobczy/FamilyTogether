@@ -40,4 +40,44 @@ public class Wishlist {
                 ", whoWillBuyIt=" + whoWillBuyIt +
                 '}';
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getiWant() {
+        return iWant;
+    }
+
+    public void setiWant(String iWant) {
+        this.iWant = iWant;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public User getWhoWillBuyIt() {
+        return whoWillBuyIt;
+    }
+
+    public void setWhoWillBuyIt(User whoWillBuyIt) {
+        this.whoWillBuyIt = whoWillBuyIt;
+    }
 }

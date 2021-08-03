@@ -12,6 +12,8 @@ import webapp.familyTogether.model.User;
 import webapp.familyTogether.service.UserService;
 import webapp.familyTogether.service.WishlistService;
 
+import java.util.List;
+
 @Slf4j
 @Controller
 public class WishlistController {
@@ -27,11 +29,13 @@ public class WishlistController {
   @GetMapping(value = "/wishlist")
   public String getWishlistPage(
       Model model, @CurrentSecurityContext(expression = "authentication?.name") String email) {
-    User user = userService.findByEmail(email);
-    String wishlist = wishlistService.findAllWhishes(user.getId()).toString();
-    model.addAttribute("wishlist", wishlist);
-    String wishlistId = wishlistService.findAllWhishesId(user.getId()).toString();
-    model.addAttribute("wishlistId", wishlistId);
+    List<String> jsonData = wishlistService.findAllByUserId(userService.findByEmail(email).getId());
+    model.addAttribute("jsonData",jsonData);
+//    User user = userService.findByEmail(email);
+//    String wishlist = wishlistService.findAllWhishes(user.getId()).toString();
+//    model.addAttribute("wishlist", wishlist);
+//    String wishlistId = wishlistService.findAllWhishesId(user.getId()).toString();
+//    model.addAttribute("wishlistId", wishlistId);
     return "wishlist";
   }
 
