@@ -15,3 +15,4 @@ public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
     @Query(value = "SELECT id FROM wishlists WHERE user_id = ?1",nativeQuery = true)
     List<String> findAllWishesId(Long userId);
 }
+//todo stworz whislist dto -> this.email = user.get(email) -> toJson -> create JSON -> PASS JSON -> OBJECT.GET IN JAVASSCRIPT -> DELETE, ADD -> DELETE, CHANGEABLE
