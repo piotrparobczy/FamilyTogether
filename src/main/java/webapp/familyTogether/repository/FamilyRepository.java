@@ -7,4 +7,5 @@ import webapp.familyTogether.model.Family;
 @Repository
 public interface FamilyRepository extends JpaRepository<Family, Long> {
 
+
 }

@@ -3,9 +3,10 @@ package webapp.familyTogether.service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import webapp.familyTogether.dto.UserDto;
+import webapp.familyTogether.model.Family;
 import webapp.familyTogether.model.User;
+import webapp.familyTogether.repository.FamilyRepository;
 import webapp.familyTogether.repository.UserRepository;
-import webapp.familyTogether.repository.UserToFamilyRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ import java.util.Optional;
 public class UserService {
 
   private final UserRepository userRepository;
-  private final UserToFamilyRepository userToFamilyRepository;
+  private final FamilyRepository familyRepository;
 
-  public UserService(UserRepository userRepository, UserToFamilyRepository userToFamilyRepository) {
+  public UserService(UserRepository userRepository, FamilyRepository familyRepository) {
     this.userRepository = userRepository;
-    this.userToFamilyRepository = userToFamilyRepository;
+    this.familyRepository = familyRepository;
   }
 
 
@@ -34,16 +35,16 @@ public class UserService {
 
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    List<Family> familyList = new ArrayList<>();
+    familyList.add(familyRepository.findById(1L).orElseThrow());
     User user = new User();
     user.setEmail(userDTO.getEmail());
     user.setPassword(encoder.encode(userDTO.getPassword()));
     user.setFirstName(userDTO.getFirstName());
     user.setLastName(userDTO.getLastName());
     user.setBirthday(LocalDate.parse(userDTO.getBirthday()));
-
+    user.setFamily(familyList);
     userRepository.save(user);
-
-    userToFamilyRepository.insertWithQuery(user);
   }
 
 
